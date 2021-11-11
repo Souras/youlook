@@ -1,0 +1,82 @@
+<!--
+  Generated template for the Main page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Home</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <img src="../assets/img/default-title.png" alt="" (pinch)="pinchEvent($event)">
+    <ion-card (tap)="tapEvent($event)" (swipe)="swipeEvent($event)" (press)="pressEvent($event)" (doubleTap)="doubleTapEvent($event)">
+        <img src="img/nin-live.png" />
+        <ion-card-content>
+            <ion-card-title>
+                Nine Inch Nails Live
+            </ion-card-title>
+            <p>
+                The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
+            </p>
+        </ion-card-content>
+    </ion-card>
+    <!--<div *ngFor="let site of sitesFeeds; let i = index;">
+        <br/><br/> {{site.name}}<br/>
+        <div *ngFor="let feed of site.items;">
+            {{feed.title}}
+        </div>
+    </div>-->
+    <!--
+    <ion-grid>
+        <ion-row>
+            <ion-col col-12>
+                <div *ngFor="let site of sitesFeeds; let i = index;">
+                    <div *ngFor="let feed of site.items; let i = index" class="feed-card">
+                        <span class="siteTitle"> {{site.name}}</span>
+                        <div class="img" [ngStyle]="{'background-image': 'url(' + feed.coverImg  + ')'}">
+                            <div class="title"><label for="">{{feed.title}}</label></div>
+                        </div>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>-->
+
+    <!--<ion-grid>
+        <ion-row>
+            <ion-col col-12>
+                <div *ngFor="let feed of feeds; let i = index" class="feed-card">
+                    <div class="img" [ngStyle]="{'background-image': 'url(' + feed.coverImg  + ')'}">
+                        <div class="title"><label for="">{{feed.title}}</label></div>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>-->
+
+
+
+
+    <!--<ion-list>
+        <ion-item *ngFor="let feed of feeds; let i = index">
+            <ion-thumbnail item-left>
+                <img [src]="feed.coverImg">
+            </ion-thumbnail>
+            <h2>{{feed.title}}</h2>
+            <p [innerHTML]="feed.shortDescription"></p>
+            <button ion-button clear item-right>View</button>
+        </ion-item>
+    </ion-list>-->
+
+
+
+</ion-content>

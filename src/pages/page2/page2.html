@@ -1,0 +1,65 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>{{selectedItem.siteName}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding="true">
+
+    <ion-slides>
+        <ion-slide *ngFor="let item of totalItems; let i = index">
+            <div>
+                <h3>{{item.title}}</h3>
+                <img *ngIf="item.isCoverImg" [src]="item.coverImg" alt="">
+                <div style="text-align: left;" [innerHTML]="item.description">
+                </div>
+            </div>
+        </ion-slide>
+    </ion-slides>
+
+    <!--<h3>{{selectedItem.title}}</h3>
+    <img *ngIf="selectedItem.isCoverImg" [src]="selectedItem.coverImg" alt="">
+    <div [innerHTML]="selectedItem.description">
+    </div>-->
+    <!--<ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <ion-icon [name]="item.icon" item-left></ion-icon>
+      {{item.title}}
+      <div class="item-note" item-right>
+        {{item.note}}
+      </div>
+    </button>
+  </ion-list>
+  <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title}}</b>
+  </div>-->
+</ion-content>
+<ion-footer>
+    <ion-scroll scrollX="true" scrollY="false" zooming="true" style="height: 100px" id="relativePostContainer2">
+        <div id="relativePostContainer" [ngStyle]="{'width': ''+ itemsLength + ''}">
+            <ion-grid>
+                <ion-row>
+                    <ion-col style="max-width: 200px;" *ngFor="let item of totalItems; let i = index">
+                        <table id="item{{i}}" class="container" (click)="goToDetails(item, i)">
+                            <tr>
+                                <td style="vertical-align: top; height: 100%;">
+                                    <div *ngIf="item.isCoverImg" class="detailsSlideImg" [ngStyle]="{'background-image': 'url(' + item.coverImg + ')'}">
+                                    </div>
+                                    <!--<span style="position: absolute; padding: 7px; background: red; border-radius: 20px; margin: -11px -13px;">{{i}}</span>-->
+                                </td>
+                                <td style="vertical-align: top; padding:8px 0px 0px 8px;">
+                                    <span *ngIf="item.isCoverImg" style="font-size:0.8em">{{item.title.substring(0,50) + "... "}}</span>
+                                    <span *ngIf="!item.isCoverImg" style="font-size:0.8em">{{item.title.substring(0,150) + "... "}}</span>
+                                    <!--<div *ngIf="!item.isCoverImg " [innerHTML]="item.shortDescription "></div>-->
+                                </td>
+                            </tr>
+                        </table>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+    </ion-scroll>
+</ion-footer>

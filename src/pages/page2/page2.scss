@@ -1,0 +1,21 @@
+page-page2 {
+    .detailsSlideImg {
+        width: 70px;
+        height: 70px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50%;
+    }
+    .swiper-slide {
+        display: block;
+        overflow: scroll;
+    }
+    .scroll-content {
+        -webkit-transition: all 1s;
+        transition: all 1s;
+    }
+    #relativePostContainer2 * {
+        -webkit-transition: all 1s;
+        transition: all 1s;
+    }
+}

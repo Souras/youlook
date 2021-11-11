@@ -1,0 +1,92 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle="left" start>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title></ion-title>
+        <button ion-button menuToggle="right" end>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <!--<div chcolor='blue'>hellosdfdsf</div>
+    <div>Test</div>
+    <div mycomponent>sdfdf</div>
+    <img src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678110-sign-info-128.png" />
+    <div style="width:200px; height:250px; overflow-y:scroll" scrolltracker>
+        <ul>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul>
+        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up
+        one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus
+        Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a
+        line in section 1.10.32.
+    </div>-->
+    <ion-list>
+        <ion-item>
+            <ion-label color="primary">Filter</ion-label>
+            <ion-input placeholder="Any Word" [(ngModel)]="searchTerm"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Sites</ion-label>
+            <ion-select [(ngModel)]="siteModal" (ionChange)="bindFeedForaSite(siteModal)">
+                <ion-option [value]="item" *ngFor="let item of feedSites">{{item.name}}</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <!--<button ion-button appConfirm> hello   </button>-->
+
+    <div *ngFor="let item of feedData; let i = index">
+        <ion-card>
+            <!--<div *ngIf="item.isCoverImg" class="coverImg" [ngStyle]="{'background-image': 'url(' + item.coverImg + ')'}">
+                <img src="" alt="" onImgItemCreate>
+            </div>-->
+            <div *ngIf="item.isCoverImg" class="coverImg" ImgItemCreate bgImg="{{item.coverImg}}" isImageOpt="{{item.isImgOpt}}">
+            </div>
+            <ion-card-content (click)="goToDetails(item, i)">
+                <ion-card-title>
+                    {{item.title}}
+                </ion-card-title>
+                <div [innerHTML]="item.shortDescription">
+                </div>
+            </ion-card-content>
+
+            <ion-row no-padding>
+                <ion-col *ngIf="item.author">
+                    <button ion-button clear small color="danger" icon-left>
+                     <ion-icon name='person'></ion-icon>
+                      {{item.author}}
+                    </button>
+                </ion-col>
+                <!--<ion-col text-center>
+                    <button ion-button clear small color="danger" icon-left>
+                    <ion-icon name='musical-notes'></ion-icon>
+                    Listen
+                    </button>
+                </ion-col>-->
+                <ion-col *ngIf="item.dateTime" text-right>
+                    <button ion-button clear small color="danger" icon-left>
+                    <ion-icon name='clock'></ion-icon>
+                    {{(item.dateTime | date)}}
+                    </button>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+    </div>
+    <!--<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>-->
+</ion-content>
